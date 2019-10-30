@@ -1,5 +1,6 @@
 package test;
 
+import io.turntabl.java.NaughtyStudent;
 import io.turntabl.java.Student;
 import org.junit.jupiter.api.Test;
 
@@ -18,5 +19,20 @@ class StudentTest {
         Student std2 = new Student(Arrays.asList(1.0,4.0,10.0));
         assertEquals(5.0, std2.getAverageGrade());
     }
+
+    @Test
+    public void testNaughtyStudentIsAStudent(){
+        Student std =  new NaughtyStudent(Arrays.asList(1.0,4.0,10.0));
+        assertEquals(5.5, std.getAverageGrade());
+    }
+    @Test
+    public void testNaughtyStudentIncreaseGrade() {
+        NaughtyStudent nst1 =  new NaughtyStudent(Arrays.asList(1.0,4.0,10.0));
+        assertNotEquals(5.0, nst1.getAverageGrade(), "Students increases grade");
+
+    }
+
+
+
 
 }
