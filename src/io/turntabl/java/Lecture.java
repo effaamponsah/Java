@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Lecture {
      List<Student> students = new ArrayList<>();
-     
+
     public void enter(Student std) {
         this.students.add(std);
     }

@@ -1,6 +1,7 @@
 package test;
 
 import io.turntabl.java.Lecture;
+import io.turntabl.java.Level;
 import io.turntabl.java.NaughtyStudent;
 import io.turntabl.java.Student;
 import org.junit.jupiter.api.Test;
@@ -13,8 +14,8 @@ class LectureTest {
     @Test
     public void testHighest(){
       Lecture lt = new Lecture();
-      lt.enter(new Student(Arrays.asList(1.0,4.0,10.0)));
-      lt.enter(new Student(Arrays.asList(1.0,2.0)));
+      lt.enter(new Student(Arrays.asList(1.0,4.0,10.0),"James", Level.First));
+      lt.enter(new Student(Arrays.asList(1.0,2.0), "Sam", Level.Second));
 
       assertEquals(5.0, lt.getHighestGrade());
     }
@@ -22,9 +23,9 @@ class LectureTest {
     @Test
     public void testNaughtyStudent(){
         Lecture lecture = new Lecture();
-        lecture.enter(new Student(Arrays.asList(2.0,4.0)));
-        lecture.enter(new Student(Arrays.asList(4.0,2.0)));
-        lecture.enter( new NaughtyStudent(Arrays.asList(2.0,4.0)));
+        lecture.enter(new Student(Arrays.asList(2.0,4.0), "Dennis", Level.First));
+        lecture.enter(new Student(Arrays.asList(4.0,2.0), "Effa", Level.First));
+        lecture.enter( new NaughtyStudent(Arrays.asList(2.0,4.0), "Mensah", Level.First));
 
         assertNotEquals(3, lecture.getHighestGrade());
     }
