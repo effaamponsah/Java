@@ -29,10 +29,11 @@ class RegisterTest {
     public void testgetRegisterdByLevel(){
         Student std1 = new Student(Arrays.asList(1.0,2.0),"James", Level.First);
         Student std2 = new Student(Arrays.asList(3.0,2.0),"Mensah", Level.Third);
-        Student std3 = new Student(Arrays.asList(6.0,2.0),"Sam", Level.First);
+        Student std3 = new Student(Arrays.asList(6.0,2.0),"Sam", Level.Third);
 
         Register register2 = new Register(Arrays.asList(std1,std2,std3));
-        register2.getRegisterByLevel(Level.Third);
+        //register2.getRegisterByLevel(Level.Third);
+        assertEquals(Arrays.asList("Mensah", "Sam"),register2.getRegisterByLevel(Level.Third) );
     }
 
     @Test

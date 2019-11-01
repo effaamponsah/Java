@@ -1,9 +1,6 @@
 package io.turntabl.java;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 public class Register{
     List<Nameable> nameables;
@@ -37,10 +34,23 @@ public class Register{
         return names;
     }
     */
-   public List<Student> getRegisterByLevel(Level level){
-       List<Student> names = stds.stream().filter(student -> student.getLevel() == level).collect(Collectors.toList());
-       return names;
-   }
+
+//   public List<Student> getRegisterByLevel(Level level){
+//       List<Student> names = stds.stream().filter(student -> student.getLevel() == level).collect(Collectors.toList());
+//
+//
+//       for (Student s: names
+//            ) {
+//           System.out.println(s.name);
+//       }
+//       return names;
+//   }
+
+  public List<String> getRegisterByLevel(Level level){
+      List<String> names = stds.stream().filter(student -> student.getLevel() == Level.Third).map(student -> student.getName()).collect(Collectors.toList());
+      return names;
+
+  }
 
 
     public void PrintReport(){
