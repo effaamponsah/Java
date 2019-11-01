@@ -21,11 +21,8 @@ class RegisterTest {
                 new Student(Arrays.asList(6.0,2.0),"Sam", Level.First)
         );
         Register rgs = new Register(students);
-        List<String> names = new ArrayList<>();
-        for (Nameable name: students) {
-            names.add(name.getName());
-        }
-        assertEquals(names, rgs.getRegister());
+
+        assertEquals(Arrays.asList("James", "Kofi", "Sam"), rgs.getRegister());
     }
 
     @Test
@@ -36,6 +33,17 @@ class RegisterTest {
 
         Register register2 = new Register(Arrays.asList(std1,std2,std3));
         register2.getRegisterByLevel(Level.Third);
+    }
+
+    @Test
+    public void testPrint(){
+        Student std1 = new Student(Arrays.asList(1.0,2.0),"James", Level.First);
+        Student std2 = new Student(Arrays.asList(3.0,2.0),"Mensah", Level.Third);
+        Student std3 = new Student(Arrays.asList(6.0,2.0),"Sam", Level.First);
+        Student std4 = new Student(Arrays.asList(6.0,2.0),"Shakespeare", Level.Second);
+
+        Register register2 = new Register(Arrays.asList(std1,std2,std3,std4));
+        register2.PrintReport();
     }
 
 }

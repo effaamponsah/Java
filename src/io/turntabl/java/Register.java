@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 public class Register{
     List<Nameable> nameables;
     List<Student> stds;
+    List<Level> lvs;
 
     public Register(List<Student> stds) {
         this.stds = stds;
@@ -21,7 +22,7 @@ public class Register{
         return names;
     }
 
-    /*public List<String> getRegisterByLevel(Level level){
+    public List<String> getRegisterByLevel(Level level){
         List<String> names = new ArrayList<>();
         for (Student std: stds) {
             if (std.getLevel() == level) {
@@ -31,32 +32,55 @@ public class Register{
         return names;
     }
 
-     */
-    public Map<Level, List<Student>> getRegisterByLevel(Level level){
-        Map<Level, List<Student>> names = new HashMap<>();
 
-        return names;
-    }
+
 
     public void PrintReport(){
-        List<String> all = new ArrayList<>();
         List<String> year1 = new ArrayList<>();
         List<String> year2 = new ArrayList<>();
         List<String> year3 = new ArrayList<>();
-        for (Nameable name: nameables
-             ) {
-            switch (name.getLevel()){
+        for (Student std: stds) {
+            switch (std.getLevel()){
                 case First:
-                    year1.add(name.getName());
+                    year1.add(std.getName());
                     break;
                 case Second:
-                    year2.add(name.getName());
+                    year2.add(std.getName());
                     break;
                 case Third:
-                    year3.add(name.getName());
+                    year3.add(std.getName());
                     break;
             }
         }
+
+            for (Level lv: Level.values()
+                 ) {
+               switch (lv){
+                   case First:
+                       System.out.println(lv);
+                       for (String s: year1
+                            ) {
+                           System.out.println(s);
+                       }
+                       break;
+                   case Second:
+                       System.out.println(lv);
+                       for (String s: year2
+                       ) {
+                           System.out.println(s);
+                       }
+                       break;
+                   case Third:
+                       System.out.println(lv);
+                       for (String s: year3
+                       ) {
+                           System.out.println(s);
+                       }
+                       break;
+               }
+
+            }
+
     }
 
 
