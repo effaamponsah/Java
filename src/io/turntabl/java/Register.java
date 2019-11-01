@@ -14,15 +14,20 @@ public class Register{
         this.stds = stds;
     }
 
-    public List<String> getRegister(){
-        List<String> names = new ArrayList<>();
+/*    public List<String> getRegister(){
+      List<String> names = new ArrayList<>();
         for (Student std: stds) {
             names.add(std.getName());
         }
         return names;
     }
+*/
+    public List<String> getRegister(){
+        List<String> names = stds.stream().map(student -> student.getName()).collect(Collectors.toList());
+        return names;
+    }
 
-    public List<String> getRegisterByLevel(Level level){
+   /* public List<String> getRegisterByLevel(Level level){
         List<String> names = new ArrayList<>();
         for (Student std: stds) {
             if (std.getLevel() == level) {
@@ -31,8 +36,11 @@ public class Register{
         }
         return names;
     }
-
-
+    */
+   public List<Student> getRegisterByLevel(Level level){
+       List<Student> names = stds.stream().filter(student -> student.getLevel() == level).collect(Collectors.toList());
+       return names;
+   }
 
 
     public void PrintReport(){
