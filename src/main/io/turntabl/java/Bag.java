@@ -1,6 +1,7 @@
 package io.turntabl.java;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Bag<T> {
@@ -15,5 +16,12 @@ public class Bag<T> {
     }
     public void clear(){
         this.list.clear();
+    }
+
+    public List<T> viewBag(){
+        return  list;
+    }
+    public int getLength(){
+        return list.size();
     }
 }

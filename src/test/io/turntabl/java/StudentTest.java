@@ -1,13 +1,11 @@
-package test;
+package io.turntabl.java;
 
-import io.turntabl.java.Level;
-import io.turntabl.java.NaughtyStudent;
-import io.turntabl.java.Student;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 class StudentTest {
     @Test
@@ -20,6 +18,12 @@ class StudentTest {
         Student std2 = new Student(Arrays.asList(1.0,4.0,10.0), "Kwame", Level.First);
         assertEquals(5.0, std2.getAverageGrade());
     }
+    @Test
+    public void getGradesTest(){
+        Student std2 = new Student(Arrays.asList(1.0,4.0,10.0), "Kwame", Level.First);
+        std2.getGrade();
+//        assertEquals(DoubleStream.of(1.0,4.0,10.0), std2.getGrade());
+    }
 
     @Test
     public void testNaughtyStudentIsAStudent(){
@@ -31,6 +35,11 @@ class StudentTest {
         NaughtyStudent nst1 =  new NaughtyStudent(Arrays.asList(1.0,4.0,10.0), "Kwame", Level.First);
         assertNotEquals(5.0, nst1.getAverageGrade(), "Students increases grade");
 
+    }
+    @Test
+    public void highestGrade(){
+        Student std =  new NaughtyStudent(Arrays.asList(1.0,4.0,10.0), "Kwame", Level.First);
+        assertEquals(10.0, std.highestGrade());
     }
 
 

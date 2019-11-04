@@ -1,5 +1,5 @@
 package io.turntabl.java;
 
-public interface Nameable extends  HasLevel{
+public interface Nameable {
     String getName();
 }

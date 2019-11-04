@@ -1,16 +1,12 @@
-package test;
+package io.turntabl.java;
 
-import io.turntabl.java.Level;
-import io.turntabl.java.Nameable;
-import io.turntabl.java.Register;
-import io.turntabl.java.Student;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 class RegisterTest {
     @Test
@@ -24,7 +20,6 @@ class RegisterTest {
 
         assertEquals(Arrays.asList("James", "Kofi", "Sam"), rgs.getRegister());
     }
-
     @Test
     public void testgetRegisterdByLevel(){
         Student std1 = new Student(Arrays.asList(1.0,2.0),"James", Level.First);
@@ -35,16 +30,29 @@ class RegisterTest {
         //register2.getRegisterByLevel(Level.Third);
         assertEquals(Arrays.asList("Mensah", "Sam"),register2.getRegisterByLevel(Level.Third) );
     }
-
     @Test
-    public void testPrint(){
-        Student std1 = new Student(Arrays.asList(1.0,2.0),"James", Level.First);
-        Student std2 = new Student(Arrays.asList(3.0,2.0),"Mensah", Level.Third);
-        Student std3 = new Student(Arrays.asList(6.0,2.0),"Sam", Level.First);
-        Student std4 = new Student(Arrays.asList(6.0,2.0),"Shakespeare", Level.Second);
+    public void getByNameTestWithException(){
+        Student std2 = new Student(Arrays.asList(1.0,2.0),"Mary", Level.First);
+        Register rg = new Register(Arrays.asList(std2));
+        try {
+            assertNotEquals("Student{studentGrades=[1.0, 2.0], name='Mary', studentLevel=First}",rg.getStudentByNameAndThrowsException("Mar") );
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    @Test
+    public void getHighestGrade(){
+        Student std2 = new Student(Arrays.asList(1.0,2.0),"Sam", Level.First);
+        Student std3 = new Student(Arrays.asList(1.0,5.0),"Dennis", Level.First);
 
-        Register register2 = new Register(Arrays.asList(std1,std2,std3,std4));
-        register2.PrintReport();
+        Register rg = new Register(Arrays.asList(std2,std3));
+        rg.highestGrade();
+    }
+    @Test
+    public void testing(){
+        Student std2 = new Student(Arrays.asList(1.0,2.0),"Me", Level.First);
+        Register rg = new Register(Arrays.asList(std2));
+        rg.testing(std2);
     }
 
 }

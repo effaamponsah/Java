@@ -1,14 +1,11 @@
-package test;
+package io.turntabl.java;
 
-import io.turntabl.java.Lecture;
-import io.turntabl.java.Level;
-import io.turntabl.java.NaughtyStudent;
-import io.turntabl.java.Student;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 class LectureTest {
     @Test
